@@ -1,0 +1,10 @@
+/**
+		JUSTIN REBOK - 2016 - TOTALLY-NOT-ASTROIDS	
+*/
+
+#ifndef COM_GRAPHICS_ASTROIDS_H
+#define COM_GRAPHICS_ASTROIDS_H
+
+#include <stdio.h>
+
+#endif
