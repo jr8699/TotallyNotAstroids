@@ -37,6 +37,10 @@ void reshapeFunc(GLint w, GLint h){
 	CURRENT CONTROL LAYOUT:
 
 		Escape - Pause the game and pull up the pause menu
+		W - Move forward
+		S - Move backwards
+		A - Rotate left
+		D - Rotate right
 
 */
 void onKeyboardPressFunc(unsigned char key, GLint x, GLint y){
@@ -45,6 +49,22 @@ void onKeyboardPressFunc(unsigned char key, GLint x, GLint y){
 			if(getMenuState() != MAINMENU || getMenuState() != PAUSEMENU)
 				setMenuState(PAUSEMENU);
 			break;
+			
+		case 'w': //move forward
+				setKeyState(FORWARD);
+			break;
+			
+		case 's': //move backward
+				setKeyState(BACKWARDS);
+			break;
+			
+		case 'a': //move (rotate) left
+				setKeyState(LEFT);
+			break;
+			
+		case 'd': //move (rotate) right
+				setKeyState(RIGHT);
+			break;
 	}
 }
 
@@ -52,7 +72,20 @@ void onKeyboardPressFunc(unsigned char key, GLint x, GLint y){
 	Where all the drawing will occur for the game
 */
 void displayFunc(void){
-	
+	menustate state = getMenuState();
+	switch(state){ //the current state of the program
+		case GAME: //when we are playing the game
+			drawGame(getPlayer());
+		break;
+		
+		case PAUSEMENU: //when the pause menu is visible
+			drawPauseMenu();
+		break;
+		
+		case MAINMENU: //when the main menu is visible
+			drawMainMenu();
+		break;	
+	}
 }
 
 /**
