@@ -6,6 +6,7 @@
 #define MAIN_ASTROIDS_H
 
 #include <stdio.h>
+#include <time.h>
 #include <GL/glut.h>
 #include "macros.h"
 #include "common.h"
@@ -15,6 +16,7 @@
 void idleFunc(void);
 void initFunc(void);
 void reshapeFunc(GLint,GLint);
+void mouseFunc(GLint, GLint, GLint, GLint);
 void onKeyboardPressFunc(unsigned char, GLint, GLint);
 void displayFunc(void);
 
